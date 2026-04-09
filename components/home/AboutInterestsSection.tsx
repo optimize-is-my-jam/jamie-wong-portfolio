@@ -1,7 +1,5 @@
 import { MaterialSymbol } from "@/components/icons/MaterialSymbol";
 
-const ROVER_PROFILE_HREF = "https://www.rover.com/sit/jamiew67868";
-
 const interests = [
   {
     icon: "flight",
@@ -47,16 +45,7 @@ const interests = [
     title: "Dog Lover",
     body: (
       <p className="text-sm text-on-surface-variant">
-        Avid dog lover focused on creating the best environment for every pup.{" "}
-        <a
-          href={ROVER_PROFILE_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium text-primary underline decoration-primary/40 underline-offset-2 transition-colors hover:text-primary-container hover:decoration-primary-container"
-        >
-          View my Rover profile
-        </a>
-        .
+        Avid dog lover focused on creating the best environment for every pup.
       </p>
     ),
   },
