@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import { PortfolioProjectBlock } from "@/components/portfolio/PortfolioProjectBlock";
 import { portfolioProjects } from "@/lib/content";
@@ -35,26 +34,6 @@ export default function PortfolioPage() {
         {portfolioProjects.map((project) => (
           <PortfolioProjectBlock key={project.id} project={project} />
         ))}
-      </div>
-
-      <div className="mt-48 bg-[#0f1923] px-8 py-20 text-center">
-        <h3 className="mb-10 font-headline text-3xl font-bold tracking-tight text-white md:text-4xl">
-          Need a software architect or tech lead for your next initiative?
-        </h3>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            href="/contact"
-            className="flex min-w-[240px] items-center justify-center bg-primary-container px-10 py-4 text-sm font-bold text-on-primary-container transition-transform duration-150 active:scale-95"
-          >
-            Contact Me
-          </Link>
-          <Link
-            href="/experience"
-            className="flex min-w-[240px] items-center justify-center border border-white/10 px-10 py-4 text-sm font-bold text-white transition-colors duration-150 hover:bg-white/5"
-          >
-            View Experience
-          </Link>
-        </div>
       </div>
     </main>
   );
