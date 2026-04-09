@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Jamie Wong | ARCHITECT.LEDGER</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#004788",
+                        "surface": "#0b1326",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#39485a",
+                        "secondary-fixed-dim": "#b9c8de",
+                        "on-primary-fixed": "#001b3c",
+                        "outline": "#8b90a0",
+                        "on-primary": "#003061",
+                        "on-primary-container": "#002a55",
+                        "outline-variant": "#414755",
+                        "surface-container-lowest": "#060e20",
+                        "inverse-on-surface": "#283044",
+                        "secondary-container": "#39485a",
+                        "on-tertiary-fixed": "#191c1e",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "inverse-surface": "#dae2fd",
+                        "error": "#ffb4ab",
+                        "background": "#0b1326",
+                        "primary-fixed": "#d5e3ff",
+                        "primary": "#a7c8ff",
+                        "on-background": "#dae2fd",
+                        "tertiary-container": "#8e9193",
+                        "tertiary": "#c4c7c9",
+                        "surface-tint": "#a7c8ff",
+                        "surface-container": "#171f33",
+                        "secondary": "#b9c8de",
+                        "surface-variant": "#2d3449",
+                        "surface-dim": "#0b1326",
+                        "on-surface-variant": "#c1c6d7",
+                        "on-secondary-fixed": "#0d1c2d",
+                        "primary-container": "#3291ff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-container-low": "#131b2e",
+                        "surface-bright": "#31394d",
+                        "on-tertiary": "#2d3133",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#222a3d",
+                        "tertiary-fixed": "#e0e3e5",
+                        "on-error": "#690005",
+                        "inverse-primary": "#005eb2",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-container-highest": "#2d3449",
+                        "on-tertiary-container": "#272a2c",
+                        "on-secondary-container": "#a7b6cc",
+                        "on-secondary": "#233143",
+                        "secondary-fixed": "#d4e4fa",
+                        "on-surface": "#dae2fd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"],
+                        "manrope": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            font-family: 'Manrope', sans-serif;
+        }
+        .selection\:bg-primary-container ::selection { background-color: #3291ff; color: #002a55; }
+        .glass-nav {
+            background: rgba(11, 19, 38, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <div id="root"></div>
+
+    <!-- React and Dependencies -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/history@5/umd/history.development.js"></script>
+    <script src="https://unpkg.com/react-router@6.3.0/umd/react-router.development.js"></script>
+    <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { createRoot } = ReactDOM;
+        const { MemoryRouter, Routes, Route, Link, useNavigate, useLocation } = ReactRouterDOM;
+
+        // --- Shared Components ---
+
+        const Navigation = () => {
+            const location = useLocation();
+            const isActive = (path) => location.pathname === path;
+
+            return (
+                <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5">
+                    <div class="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
+                        <Link to="/" class="text-xl font-extrabold tracking-tighter text-white uppercase font-headline">Jamie Wong</Link>
+                        <div class="hidden md:flex items-center gap-8">
+                            <Link 
+                                to="/" 
+                                className={`${isActive('/') ? 'text-primary font-bold border-b border-primary pb-1' : 'text-slate-400 font-medium hover:text-primary transition-colors'} font-manrope tracking-tight leading-relaxed`}
+                            >Home</Link>
+                            <Link 
+                                to="/portfolio" 
+                                className={`${isActive('/portfolio') ? 'text-primary font-bold border-b border-primary pb-1' : 'text-slate-400 font-medium hover:text-primary transition-colors'} font-manrope tracking-tight leading-relaxed`}
+                            >Portfolio</Link>
+                            <Link 
+                                to="/experience" 
+                                className={`${isActive('/experience') ? 'text-primary font-bold border-b border-primary pb-1' : 'text-slate-400 font-medium hover:text-primary transition-colors'} font-manrope tracking-tight leading-relaxed`}
+                            >Experience</Link>
+                            <Link 
+                                to="/contact" 
+                                className={`${isActive('/contact') ? 'text-primary font-bold border-b border-primary pb-1' : 'text-slate-400 font-medium hover:text-primary transition-colors'} font-manrope tracking-tight leading-relaxed`}
+                            >Contact</Link>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <button class="bg-primary-container text-on-primary-container px-6 py-2 text-sm font-bold active:scale-95 transition-transform duration-150">Resume</button>
+                        </div>
+                    </div>
+                </nav>
+            );
+        };
+
+        const Footer = () => (
+            <footer class="w-full py-16 mt-20 border-t border-white/5 bg-slate-950">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-8 gap-6">
+                    <div class="font-black text-slate-200 font-headline uppercase tracking-tighter">Jamie Wong</div>
+                    <div class="flex gap-8">
+                        <a class="font-manrope text-[10px] uppercase tracking-[0.1em] text-slate-500 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100 flex items-center gap-2" href="#">
+                            <span class="material-symbols-outlined text-[14px]">link</span> LinkedIn
+                        </a>
+                        <a class="font-manrope text-[10px] uppercase tracking-[0.1em] text-slate-500 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100 flex items-center gap-2" href="#">
+                            <span class="material-symbols-outlined text-[14px]">terminal</span> GitHub
+                        </a>
+                        <a class="font-manrope text-[10px] uppercase tracking-[0.1em] text-slate-500 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Documentation</a>
+                        <a class="font-manrope text-[10px] uppercase tracking-[0.1em] text-slate-500 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Source</a>
+                    </div>
+                    <div class="font-manrope text-[10px] uppercase tracking-[0.1em] text-slate-500">
+                        © Jamie Wong. ALL RIGHTS RESERVED.
+                    </div>
+                </div>
+            </footer>
+        );
+
+        // --- Pages ---
+
+        const HomePage = () => {
+            const navigate = useNavigate();
+            return (
+                <main class="pt-32">
+                    <section class="max-w-7xl mx-auto px-8 mb-32">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-12">
+                                <div class="absolute -inset-1 bg-gradient-to-r from-primary to-primary-container blur opacity-20"></div>
+                                <img alt="Professional portrait of Jamie Wong" class="relative w-48 h-48 md:w-64 md:h-64 object-cover transition-all duration-700 border-2 border-outline-variant/20 shadow-2xl hover:scale-105 hover:brightness-110 hover:shadow-primary/30" src="https://lh3.googleusercontent.com/aida/ADBb0ujVBBL5XGxXwPSABAC3S8zH7VOIJDfo-l-fnnYf48jGPohJODaHBDBPP10r1Im8zuScdz6p6VM-CBOsnpdXhTmmh7fPOKukh_wFaCUnTYzc_2usImu390xk8belPPqCZLU9DO_Hbz2NsdZjzAruY_pDSvgWUd26T6TV0gJNAEQLAqOqOhcUzFnxyLfwvy9yg0HXNpqudz0UTgzaVK3KXJlmo1stgDrmUqyrOeBA1Pyh7PTFWReEIvyJjC7e51EYUYl0imdzY0A" />
+                            </div>
+                            <h1 class="text-5xl md:text-8xl font-black tracking-tighter text-on-surface mb-8 max-w-5xl leading-[0.95]">
+                                Building and Architecting AI Systems that <span class="text-primary-container">Scale.</span> <br class="hidden md:block" /> Leading Teams that <span class="text-primary">Deliver.</span>
+                            </h1>
+                            <p class="text-xl md:text-2xl font-light text-on-surface-variant max-w-3xl mb-12">
+                                Proven leadership in <span class="text-on-surface font-bold">consulting</span>, building <span class="text-on-surface font-bold">client-facing apps</span>, and implementing <span class="text-on-surface font-bold">mission-critical enterprise systems</span>.
+                            </p>
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <button onClick={() => navigate('/portfolio')} class="bg-primary-container text-on-primary-container px-10 py-4 font-bold text-lg hover:shadow-[0_0_20px_rgba(50,145,255,0.4)] transition-all">Review Portfolio</button>
+                                <button class="border border-outline-variant/30 text-on-surface px-10 py-4 font-bold text-lg hover:bg-surface-container-high transition-all">Download Resume</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="max-w-7xl mx-auto px-8 py-24 bg-surface-container-low border-y border-outline-variant/10">
+                        <div class="grid md:grid-cols-12 gap-12">
+                            <div class="md:col-span-4">
+                                <h2 class="text-sm font-black tracking-[0.3em] text-primary uppercase mb-6 flex items-center gap-2">
+                                    <span class="w-8 h-[1px] bg-primary"></span>what i bring to the table</h2>
+                                <p class="text-4xl font-black text-on-surface leading-tight tracking-tighter">Core Value <br /> Propositions.</p>
+                            </div>
+                            <div class="md:col-span-8 grid md:grid-cols-1 gap-6">
+                                <div class="group bg-surface-container-highest p-8 border-l-4 border-primary transition-all hover:translate-x-2">
+                                    <h3 class="text-xl font-black mb-2 uppercase tracking-wide">building & scaling AI</h3>
+                                    <div class="text-on-surface-variant text-lg">Experience in development, deployment and architecture of <span class="text-on-surface font-bold">production grade AI systems, complex integrations</span> and <span class="text-on-surface font-bold">automated data pipelines.</span></div>
+                                </div>
+                                <div class="group bg-surface-container-highest p-8 border-l-4 border-primary transition-all hover:translate-x-2">
+                                    <h3 class="text-xl font-black mb-2 uppercase tracking-wide">Technical leadership & Cross functional delivery</h3>
+                                    <div class="text-on-surface-variant text-lg">Hands on leader managing <span class="text-on-surface font-bold">complex technical projects</span> while building high performance teams. Driving force between cross function team's success.</div>
+                                </div>
+                                <div class="group bg-surface-container-highest p-8 border-l-4 border-primary transition-all hover:translate-x-2">
+                                    <h3 class="text-xl font-black mb-2 uppercase tracking-wide">Business Strategy and Technical Execution</h3>
+                                    <p class="text-on-surface-variant text-lg">Bridging the gap between <span class="text-on-surface font-bold">business strategy</span> and <span class="text-on-surface font-bold">deep-tech execution</span>. Through strategy and technology projects, I turn stakeholders' business goals and vision into reality.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="max-w-7xl mx-auto px-8 py-24">
+                        <div class="flex flex-col gap-4 mb-16">
+                            <h2 class="text-sm font-black tracking-[0.3em] text-primary uppercase flex items-center gap-2">
+                                <span class="w-8 h-[1px] bg-primary"></span>Off the Clock</h2>
+                            <p class="text-5xl font-black text-on-surface tracking-tighter">Beyond the Blueprint.</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-20">
+                            <div class="flex flex-col">
+                                <div class="bg-surface-container-low border border-outline-variant/10 p-10 relative overflow-hidden group">
+                                    <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                                        <span class="material-symbols-outlined text-9xl">person_search</span>
+                                    </div>
+                                    <h3 class="text-2xl font-black uppercase tracking-tight mb-8 text-primary">About Me</h3>
+                                    <div class="space-y-6 text-on-surface-variant leading-relaxed text-lg">
+                                        <p>I grew up in Hong Kong and Shanghai—two cities defined by speed, density, and seamless connectivity. Living in environments where everything was interconnected shaped how I see the world: <b class="text-white">systems</b> should work together to unlock incredible <b class="text-white">efficiency and value</b>.</p>
+                                        <p>At a young age, I was drawn to computers. I loved assembling my own PCs, understanding how <b class="text-white">individual components</b> created something powerful. That curiosity quickly expanded into software and web technologies.</p>
+                                        <p>I also became the go-to person in my family for <b class="text-white">organizing information</b>. What started as a simple task turned into an early lesson: how you <b class="text-white">store, structure, and manage information</b> matters. Good organization makes things easy to access.</p>
+                                        <p>I chose to study <b class="text-white">Information Systems</b> because I knew I wanted to be at the intersection of technology and business. I believe technology isn’t just a support function—it’s a <b class="text-white">core driver of business value</b>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-8">
+                                <h3 class="text-2xl font-black uppercase tracking-tight text-primary">Personal Interests</h3>
+                                {[
+                                    { icon: 'flight', title: 'Travel Tech', desc: "Dedicated fan of innovative travel solutions and global connectivity." },
+                                    { icon: 'sports_soccer', title: 'Arsenal Football Club', desc: "I've been a dedicated <b class='text-white'>Arsenal fan since 2002</b>. Through every era, the club has been a constant—teaching me loyalty and resilience." },
+                                    { icon: 'explore', title: 'Endurance Sports', desc: "I’m passionate about endurance challenges. Competing in marathons and triathlons pushes my <b class='text-white'>physical and mental limits</b>." },
+                                    { icon: 'nutrition', title: 'Health Optimization', desc: "Deeply interested in <b class='text-white'>longevity</b> and health optimization, focusing on whole foods and high performance." },
+                                    { icon: 'pets', title: 'Miniature Schnauzer', desc: "Proud owner of a Miniature Schnauzer, focused on creating the best environment for him to <b class='text-white'>thrive</b>." },
+                                    { icon: 'auto_awesome', title: 'Hyper-Personal AI', desc: "Building <b class='text-white'>AI agents</b> to optimize daily life, from workout trackers to news summarizers." }
+                                ].map((item, i) => (
+                                    <div key={i} class="flex gap-6 group">
+                                        <div class="w-32 h-32 flex-shrink-0 bg-surface-container-highest border border-outline-variant/10 overflow-hidden flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-outline/30 text-3xl group-hover:text-primary transition-colors">{item.icon}</span>
+                                        </div>
+                                        <div class="flex flex-col justify-center">
+                                            <h4 class="text-xl font-bold uppercase tracking-wide mb-1 text-on-surface">{item.title}</h4>
+                                            <p class="text-on-surface-variant text-sm" dangerouslySetInnerHTML={{__html: item.desc}}></p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            );
+        };
+
+        const PortfolioPage = () => {
+            const navigate = useNavigate();
+            return (
+                <main class="pt-32 pb-20 px-8 max-w-7xl mx-auto">
+                    <header class="mb-24">
+                        <div class="max-w-3xl">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="w-12 h-[1px] bg-primary"></span>
+                                <span class="text-xs font-label uppercase tracking-[0.2em] text-primary">Strategic Portfolio</span>
+                            </div>
+                            <h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-white leading-none mb-8">Featured <br /><span class="text-on-surface-variant/50">Engagements.</span></h1>
+                            <p class="text-lg md:text-xl text-on-surface-variant font-body leading-relaxed max-w-2xl">
+                                A collection of high-impact technical initiatives focusing on enterprise scale, data science integration, and strategic engineering advisory.
+                            </p>
+                        </div>
+                    </header>
+
+                    <div class="space-y-40">
+                        {/* Project 1 */}
+                        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                            <div class="lg:col-span-5 space-y-8">
+                                <div class="space-y-4">
+                                    <span class="text-[10px] font-label uppercase tracking-widest text-primary-container font-bold">Strategic Advisory and AI System Implementation</span>
+                                    <h2 class="text-4xl font-headline font-bold text-white tracking-tight">Bain AI Travel Platform</h2>
+                                </div>
+                                <p class="text-on-surface-variant leading-relaxed">
+                                    <strong class="text-white">Developing</strong> a comprehensive build-vs-buy strategy for leadership. <strong class="text-white">Leading a pilot implementation</strong> of Skylink, taking full technical ownership across architecture, security, and AI testing frameworks. <strong class="text-white">Driving measurable improvements</strong> in user behavior and delivery of cost savings.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    {['AI Governance', 'Cloud Security', 'System Integration'].map(tag => (
+                                        <span key={tag} class="px-3 py-1 bg-surface-container-high text-[10px] font-label text-on-surface-variant uppercase tracking-wider">{tag}</span>
+                                    ))}
+                                </div>
+                                <div class="pt-4"><a class="group flex items-center gap-2 text-primary text-sm font-bold tracking-tight transition-all hover:gap-4" href="https://www.tryskylink.com/#how-it-works" target="_blank">LEARN MORE ABOUT SKYLINK <span class="material-symbols-outlined text-lg">open_in_new</span></a></div>
+                            </div>
+                            <div class="lg:col-span-7 bg-surface-container-low p-2">
+                                <div class="relative aspect-[16/9] overflow-hidden group bg-[#12161c]">
+                                    <img alt="Bain AI Travel Platform Architecture" class="w-full h-full grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-105 group-hover:scale-100 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIMeQKbnQocqHJmegTBljVJIK0967d30Dzq_EQ7LZ78ZYNymtV7tdMQ3jBEClyNNelHP1C-QTch-RKEXGWSWkRgj5Jm_n9ftWbetm4QKVEexKbroMs6Rek-GE05NjBLMBKwIfrWr0fQY8TA1qufO9XQf5ura8Zx17HatPOxw4vWEttoROZDUUU3E5y-9V3Ns8xnvSa8SR_MemZTQ0e4-BN0kMrKE3J1LNSNm0Fl_MAOyPLladzj4ZfNbZRFlw5258kDs6ORzUtig" />
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* Project 2 */}
+                        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                            <div class="lg:col-span-7 order-2 lg:order-1 bg-surface-container-low p-2">
+                                <div class="relative aspect-[16/9] overflow-hidden group">
+                                    <img alt="Data Science Analytics" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-105 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUoVGMzCOn8eoLNLe2Jw_4AwSe4KmoLejF5JRxU0Jd900JCJXMGbNd33JcCm1TZt6TLXXzatKxv6W5D0NEiz-kBkeSP5CE6PXR5jxdE9iKTvj9ijgWOkanmRlO5A7LyZskG82gJtyKNBSM2FOKIkAAP4d6B5ElxCqeFB2530Em-ij_jo8LTEmdIijcHQqQj5EOBd2URmbXOv_2wRYg-XJtcQXNIaUL5Px9d7nlevukJGKoXsjW7-_Vxlr8PROhEGCs8_hEOl8OMw" />
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 order-1 lg:order-2 space-y-8">
+                                <div class="space-y-4">
+                                    <span class="text-[10px] font-label uppercase tracking-widest text-primary-container font-bold">Hands on Engineering Leadership</span>
+                                    <h2 class="text-4xl font-headline font-bold text-white tracking-tight">Experimentation & Optimization Platform</h2>
+                                </div>
+                                <p class="font-body leading-relaxed text-slate-400">Led engineering squad to bridge the gap between high-level <strong class="text-white">Data Science</strong> and <strong class="text-white">production software</strong>. Embedded <strong class="text-white">optimization models</strong> into <strong class="text-white">scalable infrastructure</strong> for massive parallel processing.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    {['ML Ops', 'Async Architecture', 'Parallel Computing'].map(tag => (
+                                        <span key={tag} class="px-3 py-1 bg-surface-container-high text-[10px] font-label text-on-surface-variant uppercase tracking-wider">{tag}</span>
+                                    ))}
+                                </div>
+                                <div class="pt-4">
+                                    <a class="group flex items-center gap-2 text-primary text-sm font-bold tracking-tight transition-all hover:gap-4" href="https://www.bain.com/vector-digital/ai-insights-and-solutions/experimentation-at-scale/" target="_blank">LEARN MORE ABOUT THE TOOLKIT <span class="material-symbols-outlined text-lg">open_in_new</span></a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="mt-48 py-20 px-8 bg-[#0f1923] text-center">
+                        <h3 class="text-3xl md:text-4xl font-headline font-bold text-white mb-10 tracking-tight">Need a software architect or tech lead for your next initiative?</h3>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <button onClick={() => navigate('/contact')} class="bg-[#007AFF] text-white px-10 py-4 text-sm font-bold active:scale-95 transition-transform duration-150 flex items-center justify-center min-w-[240px]">Contact Me</button>
+                            <button onClick={() => navigate('/experience')} class="border border-white/10 text-white px-10 py-4 text-sm font-bold hover:bg-white/5 transition-colors duration-150 flex items-center justify-center min-w-[240px]">View Experience</button>
+                        </div>
+                    </div>
+                </main>
+            );
+        };
+
+        const ExperiencePage = () => {
+            return (
+                <main class="pb-20 pt-40">
+                    <section class="max-w-7xl mx-auto px-8 relative">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                            <div class="hidden lg:block lg:col-span-2 pt-4">
+                                <div class="sticky top-40 space-y-24">
+                                    {['2020 — PRES', '2016 — 2020', 'LEADERSHIP'].map((label, i) => (
+                                        <div key={i} class="flex items-center gap-4 group cursor-pointer">
+                                            <div class={`h-px ${i === 0 ? 'w-16 bg-primary' : 'w-12 bg-slate-800'} group-hover:w-16 group-hover:bg-primary transition-all`}></div>
+                                            <span class="text-xs font-black tracking-widest text-slate-500 uppercase">{label}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div class="lg:col-span-10 space-y-32">
+                                <div class="mb-24">
+                                    <span class="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Jamie's Career Journey</span>
+                                    <h1 class="text-[3.5rem] font-extrabold leading-[1.1] tracking-tight text-white mb-8">
+                                        <strong>Building Scalable AI & Cloud Platforms</strong>
+                                    </h1>
+                                    <p class="text-on-surface-variant text-lg leading-relaxed max-w-xl">Designing and delivering enterprise systems that turn complex data and AI capabilities into real business impact.</p>
+                                </div>
+
+                                {/* Bain */}
+                                <div class="group">
+                                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-8 gap-4">
+                                        <div class="order-1 md:order-2 md:text-right">
+                                            <h2 class="text-3xl font-bold text-white mb-2">Bain & Company</h2>
+                                            <p class="text-slate-500 text-sm mt-1 uppercase tracking-widest font-bold">Chicago, IL</p>
+                                        </div>
+                                        <div class="order-2 md:order-1 flex-1 space-y-12">
+                                            {[
+                                                { title: 'Staff Solution Architect II', date: 'Feb 2026 — Present', bullets: ['Staff Solution Architect responsible for designing and delivering AI and cloud-based enterprise solutions.'], tags: ['Enterprise Architecture', 'Solution Architecture'] },
+                                                { title: 'Software Engineering Manager', date: 'Mar 2023 — Feb 2026', bullets: ['Led cross-functional team of software, data, DevOps, and QA automation engineers.', 'Designed architecture for complex marketing data science platform using linear programming.', 'Managed careers for data/software engineers. Built product used in 28+ cases.'], tags: ['People Management', 'Python', 'Platform Strategy'] },
+                                                { title: 'Software Engineer', date: 'Mar 2020 — Mar 2023', bullets: ['Founding engineer for low-code platform adoption.', 'Led global teams, owned deployments and operating processes.', 'Delivered core features accelerating revenue.'], tags: ['Technical Leadership', 'Agile Methodologies', 'Low-Code'] }
+                                            ].map((pos, i) => (
+                                                <div key={i}>
+                                                    <div class="flex justify-between items-baseline mb-2">
+                                                        <p class="text-primary font-semibold text-xl">{pos.title}</p>
+                                                        <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">{pos.date}</p>
+                                                    </div>
+                                                    <ul class="space-y-4 mb-4">
+                                                        {pos.bullets.map((b, bi) => (
+                                                            <li key={bi} class="flex gap-4">
+                                                                <span class="w-1.5 h-1.5 bg-primary mt-2 flex-shrink-0"></span>
+                                                                <span class="text-on-surface/80">{b}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        {pos.tags.map(t => <span key={t} class="bg-surface-container-high text-on-surface-variant px-3 py-1 text-[0.7rem] uppercase tracking-wider font-bold">{t}</span>)}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* KPMG */}
+                                <div class="group pt-16 border-t border-outline-variant/10">
+                                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-8 gap-4">
+                                        <div class="order-1 md:order-2 md:text-right">
+                                            <h2 class="text-3xl font-bold text-white mb-2">KPMG US</h2>
+                                            <p class="text-slate-500 text-sm mt-1 uppercase tracking-widest font-bold">Arlington, VA</p>
+                                        </div>
+                                        <div class="order-2 md:order-1 flex-1">
+                                            <div class="flex justify-between items-baseline mb-2">
+                                                <p class="text-primary font-semibold text-xl">Senior Associate</p>
+                                                <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Jul 2016 — Feb 2020</p>
+                                            </div>
+                                            <p class="text-on-surface/80 mb-4">Lead technology consultant for Fortune 500 companies and contractor for major financial institutions.</p>
+                                            <div class="flex flex-wrap gap-2 mb-8">
+                                                <span class="bg-surface-container-high text-on-surface-variant px-3 py-1 text-[0.7rem] uppercase tracking-wider font-bold">Agile Methodologies</span>
+                                                <span class="bg-surface-container-high text-on-surface-variant px-3 py-1 text-[0.7rem] uppercase tracking-wider font-bold">Database Design</span>
+                                            </div>
+                                            <div class="mt-8 pt-8 border-t border-outline-variant/10">
+                                                <p class="text-xs font-black tracking-[0.2em] text-slate-500 uppercase mb-6">Consulted for firms as lead technology consultant</p>
+                                                <div class="flex flex-wrap items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                                                    <img alt="Capital Group" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0uiMKmegUfT-zIdkrE_846UmN3gtQoAOYjhvrRa1o_JulWCFbyl6iSD8cnSoHoGB3QadP29YgTUVMvTafn2gxY8UiR8qsz5TMLmXzXBijTKYqYtdu-ur_wvoJ3nbda4g4vSUXj7VWtl85URZ12I1FKdhyMtDO3gQ0PvnsUWX2dvJQBn7W2qHm-TJBXYPl-2Y6dXO3BiLn2yYnU-1oDa5G9kCGOQgN85lHsMQPDJ7Afupyee524Luw1PqZNsyjabXqmi6VpyZYx1X" />
+                                                    <img alt="Goldman Sachs" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0ui_fWPOUXR1Hvecnisri2fy61yf6dgd75Qn9VP8fB3PVWGFqDiKyQwNN9yO2ZqEjyIq2-1_STdW25-_whaytsyUOajJvodV_ICdop8z8mYBwIuaXUvOWNhcvVWLWH957mUI41ANKkIQVjvetEeYPsZ3PALxeWPRS7nPEKvctoWeX3UEJ6nn1bAd0EC2-VVV7UY6ZhP11rB0AUZA8ikg12-pdtJt2Qp5aRFQG0xQWUFEQYFLaFlgcx9DrKHN7H6ViT1iPA1m2Q_a" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            );
+        };
+
+        const ContactPage = () => {
+            return (
+                <main class="pt-32 pb-20 px-8 max-w-7xl mx-auto">
+                    <header class="mb-20">
+                        <p class="text-primary font-label text-[0.75rem] uppercase tracking-[0.2em] mb-4">Contact me</p>
+                        <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-on-surface max-w-3xl leading-[1.1]">
+                            Let's build the <span class="text-primary-fixed-dim">future</span> of your business together
+                        </h1>
+                    </header>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                        <div class="lg:col-span-5 space-y-16">
+                            <section>
+                                <h2 class="text-sm font-bold uppercase tracking-[0.15em] text-outline mb-8">Direct Links</h2>
+                                <div class="space-y-6">
+                                    {['LinkedIn', 'GitHub', 'Documentation'].map(item => (
+                                        <a key={item} class="group flex items-center justify-between p-6 bg-surface-container-low hover:bg-surface-container transition-colors duration-300" href="#">
+                                            <div class="flex items-center gap-4">
+                                                <span class="material-symbols-outlined text-primary">{item === 'LinkedIn' ? 'link' : item === 'GitHub' ? 'code' : 'description'}</span>
+                                                <span class="text-lg font-medium">{item}</span>
+                                            </div>
+                                            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_outward</span>
+                                        </a>
+                                    ))}
+                                </div>
+                            </section>
+                            <section>
+                                <h2 class="text-sm font-bold uppercase tracking-[0.15em] text-outline mb-6">Regional Node</h2>
+                                <div class="p-8 bg-surface-container-lowest border border-outline-variant/15 aspect-video overflow-hidden grayscale contrast-125 opacity-70">
+                                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvZufHkpvCWnJkdrvj0Y-Bg2tl3OvlTzXdiARLHosqpRLx9Kb-6rhWSw6U2kM6GOqL6ZBxk6XiaZ8XizYg4HbK7qqAtp4EHJ0l8EBecIWH0hqnDaLs415_8xBYrS4EBooEcaKPh5WJt42Wute9jf6t5GWtNEPFKI2PRmjkX1g9KywlkLr9wxK2xIKJDoYrqnCBcHNxej8nyZA67l6AY81MKLQYeZoOzHt-6QAOnlIAuJSe72H9GZ_sdj_RKVP5G8Q742l3uHAJiw" />
+                                </div>
+                            </section>
+                        </div>
+                        <div class="lg:col-span-7">
+                            <div class="bg-surface-container p-8 md:p-12 shadow-2xl">
+                                <form class="space-y-8" onSubmit={(e) => e.preventDefault()}>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        <div class="space-y-2">
+                                            <label class="text-[0.7rem] uppercase tracking-widest text-outline font-bold">Name</label>
+                                            <input class="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary/40 p-4 text-on-surface" placeholder="John Doe" type="text" />
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-[0.7rem] uppercase tracking-widest text-outline font-bold">Email</label>
+                                            <input class="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary/40 p-4 text-on-surface" placeholder="john.doe@gmail.com" type="email" />
+                                        </div>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="text-[0.7rem] uppercase tracking-widest text-outline font-bold">Subject</label>
+                                        <select class="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary/40 p-4 text-on-surface">
+                                            <option>System Architecture Consultation</option>
+                                            <option>Technical Speaking Engagement</option>
+                                            <option>Infrastructure Audit</option>
+                                            <option>General Inquiry</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="text-[0.7rem] uppercase tracking-widest text-outline font-bold">Message</label>
+                                        <textarea class="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary/40 p-4 text-on-surface resize-none" placeholder="Define the scope of your inquiry..." rows="6"></textarea>
+                                    </div>
+                                    <button class="w-full md:w-auto px-12 py-4 bg-primary-container text-on-primary-container font-black uppercase tracking-widest text-sm hover:shadow-[0_0_15px_rgba(50,145,255,0.4)] transition-all" type="submit">Send Message</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            );
+        };
+
+        // --- App Shell ---
+
+        const App = () => {
+            const { pathname } = useLocation();
+
+            // Scroll to top on route change
+            useEffect(() => {
+                window.scrollTo(0, 0);
+            }, [pathname]);
+
+            return (
+                <div className="min-h-screen flex flex-col">
+                    <Navigation />
+                    <div className="flex-grow">
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/portfolio" element={<PortfolioPage />} />
+                            <Route path="/experience" element={<ExperiencePage />} />
+                            <Route path="/contact" element={<ContactPage />} />
+                        </Routes>
+                    </div>
+                    <Footer />
+                </div>
+            );
+        };
+
+        const Root = () => (
+            <MemoryRouter>
+                <App />
+            </MemoryRouter>
+        );
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<Root />);
+    </script>
+</body>
+</html>

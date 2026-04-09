@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container;
+}
+
+/* Experience page: timeline jump links clear the fixed nav */
+[data-experience-timeline] {
+  scroll-margin-top: 7rem;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Portfolio SVG illustrations — motion + reduced-motion */
+/* Skylink: Teams chat + AI agent */
+.portfolio-illustration .skylink-metric-chip,
+.portfolio-illustration .skylink-metric-chip-alt {
+  animation: skylink-metric-glow 3s ease-in-out infinite;
+}
+.portfolio-illustration .skylink-metric-chip-alt {
+  animation-delay: 0.4s;
+}
+.portfolio-illustration .skylink-agent-rail {
+  animation: skylink-rail-pulse 2.8s ease-in-out infinite;
+}
+.portfolio-illustration .skylink-agent-avatar {
+  animation: skylink-avatar-ring 2.4s ease-in-out infinite;
+}
+.portfolio-illustration .skylink-typing-dot {
+  animation: skylink-typing 1.05s ease-in-out infinite;
+}
+.portfolio-illustration .skylink-typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.portfolio-illustration .skylink-typing-dot:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.portfolio-illustration .skylink-typing-dot:nth-child(3) {
+  animation-delay: 0.36s;
+}
+.portfolio-illustration .exp-regression-line {
+  stroke-dasharray: 430;
+  stroke-dashoffset: 430;
+  animation: exp-regression-draw 3.8s ease-out forwards;
+}
+.portfolio-illustration .exp-scatter-point {
+  animation: exp-scatter-pop 2.8s ease-in-out infinite;
+}
+.portfolio-illustration .exp-optimal-ring {
+  animation: exp-optimal-pulse 2.2s ease-in-out infinite;
+}
+.portfolio-illustration .exp-bar-lift {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: exp-alloc-pulse 3.2s ease-in-out infinite alternate;
+}
+/* Value diagnostic — benchmark table + what-if rows */
+.portfolio-illustration .value-whatif-row {
+  animation: value-whatif-row 3.4s ease-in-out infinite;
+}
+.portfolio-illustration .value-delta {
+  animation: value-delta-soft 2.8s ease-in-out infinite;
+}
+
+@keyframes portfolio-dashflow {
+  to {
+    stroke-dashoffset: -360;
+  }
+}
+@keyframes skylink-metric-glow {
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes skylink-rail-pulse {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes skylink-avatar-ring {
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes skylink-typing {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes exp-regression-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes exp-scatter-pop {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes exp-optimal-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes exp-alloc-pulse {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes value-whatif-row {
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes value-delta-soft {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-illustration .skylink-metric-chip,
+  .portfolio-illustration .skylink-metric-chip-alt,
+  .portfolio-illustration .skylink-agent-rail,
+  .portfolio-illustration .skylink-agent-avatar,
+  .portfolio-illustration .skylink-typing-dot,
+  .portfolio-illustration .exp-regression-line,
+  .portfolio-illustration .exp-scatter-point,
+  .portfolio-illustration .exp-optimal-ring,
+  .portfolio-illustration .exp-bar-lift,
+  .portfolio-illustration .value-whatif-row,
+  .portfolio-illustration .value-delta {
+    animation: none !important;
+  }
+  .portfolio-illustration .exp-regression-line {
+    stroke-dashoffset: 0 !important;
+  }
+}

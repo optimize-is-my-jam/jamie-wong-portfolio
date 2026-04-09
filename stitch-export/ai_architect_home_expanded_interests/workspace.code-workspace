@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"name": "ai_architect_home_expanded_interests",
+			"path": "."
+		},
+		{
+			"name": "contact_dark_mode",
+			"path": "../contact_dark_mode"
+		},
+		{
+			"name": "digital_architect",
+			"path": "../digital_architect"
+		},
+		{
+			"name": "portfolio_active_projects_status",
+			"path": "../portfolio_active_projects_status"
+		},
+		{
+			"name": "professional_experience_streamlined_layout",
+			"path": "../professional_experience_streamlined_layout"
+		},
+		{
+			"name": "personal-brand-portfolio",
+			"path": "../../../Documents/Projects/personal-brand-portfolio"
+		}
+	],
+	"settings": {}
+}
