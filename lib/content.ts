@@ -88,7 +88,8 @@ export const portfolioProjects = [
       ],
     } as const,
     tags: ["Software Engineering", "Visualizations", "Business Logic"],
-    linkHref: "https://www.bain.com/",
+    linkHref:
+      "https://www.bain.com/consulting-services/customer-strategy-and-marketing/customer-capital/",
     linkLabel: "Learn more about the Value Calculator",
     mediaOnRight: true,
   },
