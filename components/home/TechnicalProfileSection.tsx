@@ -12,8 +12,7 @@ export function TechnicalProfileSection() {
             Technical skills, education &amp; certifications
           </p>
           <p className="mt-4 text-lg leading-relaxed text-on-surface-variant">
-            Languages, platforms, and formal learning that underpin delivery at
-            scale.
+            Languages, platforms, and credentials behind enterprise delivery.
           </p>
           <p className="mt-8">
             <Link

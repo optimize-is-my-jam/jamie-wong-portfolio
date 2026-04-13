@@ -28,26 +28,15 @@ export function HomeHero() {
           />
         </div>
         <h1 className="mb-8 max-w-5xl text-5xl font-black leading-[0.95] tracking-tighter text-on-surface md:text-8xl">
-          Cloud AI Architect building enterprise AI systems that deliver{" "}
+          Solutions Architect building{" "}
           <span className="text-primary-container">
-            measurable business outcomes.
+            enterprise AI systems
           </span>{" "}
-          <br className="hidden md:block" />
-          Leading teams to turn strategy into{" "}
-          <span className="text-primary">
-            scalable, production-ready solutions.
-          </span>
+          that drive business outcomes.
         </h1>
         <p className="mb-12 max-w-3xl text-xl font-light text-on-surface-variant md:text-2xl">
-          Proven leadership in{" "}
-          <span className="font-bold text-on-surface">consulting</span>,
-          building{" "}
-          <span className="font-bold text-on-surface">client-facing apps</span>,
-          and implementing{" "}
-          <span className="font-bold text-on-surface">
-            mission-critical enterprise systems
-          </span>
-          .
+          Client facing technical consultant, experienced in building bespoke systems and implementing mission-critical enterprise
+          platforms.
         </p>
         <div className="flex flex-col gap-6 md:flex-row">
           <Button

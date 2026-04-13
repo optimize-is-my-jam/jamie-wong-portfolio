@@ -17,9 +17,8 @@ export function CoreValueSection() {
               Building &amp; Scaling AI Systems
             </h3>
             <p className="text-lg leading-relaxed text-on-surface-variant">
-              Designing and deploying production-grade AI systems—from intelligent
-              agents to data pipelines—integrated into enterprise workflows and
-              built for scale, reliability, and measurable impact.
+              Designing production-grade AI systems, from intelligent agents to
+              data pipelines, built for scale, reliability, and business impact.
             </p>
           </div>
           <div className="border-l-4 border-primary bg-surface-container-highest p-8 transition-all hover:translate-x-2">
@@ -27,10 +26,8 @@ export function CoreValueSection() {
               Technical Leadership &amp; Delivery
             </h3>
             <p className="text-lg leading-relaxed text-on-surface-variant">
-              Hands-on leader of cross-functional teams across engineering, data,
-              and product. Driving execution on complex initiatives—from
-              architecture to deployment—while building high-performing teams
-              that consistently deliver.
+              Hands-on leader across engineering, data, and product, driving
+              complex initiatives from architecture through deployment.
             </p>
           </div>
           <div className="border-l-4 border-primary bg-surface-container-highest p-8 transition-all hover:translate-x-2">
@@ -38,10 +35,8 @@ export function CoreValueSection() {
               Business Strategy → Technical Execution
             </h3>
             <p className="text-lg leading-relaxed text-on-surface-variant">
-              Translating business strategy into scalable systems. Partnering with
-              stakeholders to turn ambiguous goals into concrete solutions that
-              drive efficiency, optimize decisions, and deliver measurable
-              outcomes.
+              Translating business strategy into scalable systems that improve
+              efficiency, sharpen decisions, and deliver measurable outcomes.
             </p>
           </div>
         </div>

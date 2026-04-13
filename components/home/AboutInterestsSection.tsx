@@ -88,82 +88,38 @@ export function AboutInterestsSection() {
             </h3>
             <div className="space-y-6 text-lg leading-relaxed text-on-surface-variant">
               <p>
-                I grew up in Hong Kong and Shanghai—two cities defined by speed,
-                density, and seamless connectivity. Living in environments where
-                everything was interconnected shaped how I see the world:{" "}
-                <strong className="font-bold text-on-surface">systems</strong>{" "}
-                should work together to unlock efficiency and create{" "}
-                <strong className="font-bold text-on-surface">value</strong>.
+                I grew up in Hong Kong and Shanghai, which shaped how I think
+                about <strong className="font-bold text-on-surface">systems</strong>,
+                speed, and connected experiences.
               </p>
               <p>
-                From an early age, I was drawn to computers. I enjoyed assembling
-                my own PCs and understanding how{" "}
-                <strong className="font-bold text-on-surface">
-                  individual components
-                </strong>{" "}
-                came together to build something powerful. That curiosity
-                naturally expanded into software and web technologies.
-              </p>
-              <p>
-                I also became the go-to person in my family for organizing
-                information. What started as a simple responsibility became an
-                early lesson in{" "}
-                <strong className="font-bold text-on-surface">
-                  systems thinking
-                </strong>
-                —how information is structured and managed directly impacts how
-                effectively it can be used.
-              </p>
-              <p>
-                I pursued{" "}
+                That early curiosity led me to study{" "}
                 <strong className="font-bold text-on-surface">
                   Information Systems
                 </strong>{" "}
-                at the Robert H. Smith School of Business at the{" "}
+                at the{" "}
                 <strong className="font-bold text-on-surface">
                   University of Maryland
                 </strong>
-                , where I focused on the intersection of technology and business.
+                , focusing on the intersection of technology and business.
               </p>
               <p>
-                I began my career at{" "}
-                <strong className="font-bold text-on-surface">KPMG</strong> as a
-                consultant, building business applications for large enterprises.
-                I then transitioned into software engineering at{" "}
+                I started at{" "}
+                <strong className="font-bold text-on-surface">KPMG</strong>{" "}
+                building enterprise applications, then moved to{" "}
                 <strong className="font-bold text-on-surface">
                   Bain &amp; Company
-                </strong>
-                , where I worked on some of the most complex and high-impact
-                business problems—using technology to design and deliver{" "}
-                <strong className="font-bold text-on-surface">
-                  scalable solutions
-                </strong>
-                .
-              </p>
-              <p>
-                Over time, I grew into engineering leadership roles, leading teams
-                to build{" "}
-                <strong className="font-bold text-on-surface">
-                  production-grade systems
                 </strong>{" "}
-                and drive{" "}
-                <strong className="font-bold text-on-surface">
-                  cross-functional delivery
-                </strong>
-                .
+                to design and deliver scalable software for high-impact business
+                problems.
               </p>
               <p>
                 Today, I work as a{" "}
                 <strong className="font-bold text-on-surface">
                   Solutions Architect
                 </strong>
-                , partnering closely with business and technology leaders to
-                translate strategy into scalable solutions. My focus is on
-                leveraging cutting-edge{" "}
-                <strong className="font-bold text-on-surface">
-                  AI and cloud technologies
-                </strong>{" "}
-                to build systems that drive{" "}
+                , partnering with leaders to turn strategy into AI and cloud
+                systems that deliver{" "}
                 <strong className="font-bold text-on-surface">
                   measurable business outcomes
                 </strong>
