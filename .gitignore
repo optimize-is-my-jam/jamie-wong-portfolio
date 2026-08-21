@@ -31,9 +31,3 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-
-# Garmin Connect credentials, tokens, and pulled health JSON
-garmin/.env
-garmin/.venv/
-garmin/.garmin_tokens/
-garmin/data/*.json
