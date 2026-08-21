@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chicago Half — Sub-2:00 Training Plan</title>
+  <style>
+    :root {
+      --bg: #f6f4f0;
+      --paper: #fffdf9;
+      --ink: #1c1917;
+      --muted: #57534e;
+      --line: #e7e5e4;
+      --accent: #1d4ed8;
+      --easy: #166534;
+      --hard: #9a3412;
+      --warn-bg: #fff7ed;
+      --this-bg: #eff6ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 17px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    header.hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px 28px 24px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      font-weight: 700;
+    }
+    .meta {
+      display: grid;
+      gap: 6px 24px;
+      grid-template-columns: auto 1fr;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 700; color: var(--ink); }
+    .meta dd { margin: 0; }
+    .lede {
+      margin: 16px 0 0;
+      color: var(--muted);
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin: 36px 0 12px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+    h3 { font-size: 1.05rem; margin: 22px 0 8px; }
+    p, li { color: var(--ink); }
+    ol.rules { padding-left: 1.3rem; }
+    ol.rules li { margin: 0 0 10px; }
+    .note {
+      background: var(--warn-bg);
+      border: 1px solid #fed7aa;
+      padding: 12px 16px;
+      margin: 12px 0;
+    }
+    .this-week {
+      background: var(--this-bg);
+      border: 1px solid #bfdbfe;
+      padding: 16px 18px 8px;
+      margin: 12px 0 24px;
+    }
+    .this-week h2 { border: 0; margin-top: 0; padding-top: 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--paper);
+      font-size: 0.92rem;
+      line-height: 1.4;
+      margin: 10px 0 18px;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+    tr.current td { background: var(--this-bg); font-weight: 600; }
+    .wrap { overflow-x: auto; }
+    .easy { color: var(--easy); font-weight: 700; }
+    .hard { color: var(--hard); font-weight: 700; }
+    ul.plain { padding-left: 1.2rem; }
+    ul.plain li { margin: 0 0 8px; }
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    @media print {
+      body { background: #fff; }
+      main { padding: 0; max-width: none; }
+      header.hero, .this-week, .note, table { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <h1>Chicago Half Marathon — Sub-2:00 plan</h1>
+      <dl class="meta">
+        <dt>Race</dt><dd>Life Time Chicago Half · Sunday, Sep 27, 2026</dd>
+        <dt>Goal</dt><dd>Under 2:00:00 · 9:09 per mile</dd>
+        <dt>Revised</dt><dd>Sun, Aug 16, 2026 · 6 weeks out · Week 4 complete</dd>
+      </dl>
+      <p class="lede">
+        Based on Garmin through Aug 16: VO2 max 49.3, half prediction 1:56:24,
+        longest run 7.06 mi at 10:00 / 165 bpm. Easy aerobic load is short;
+        high aerobic is over target. Most “easy” runs were actually 9:20–9:40
+        at 165–172 bpm.
+      </p>
+    </header>
+
+    <h2>Rules</h2>
+    <ol class="rules">
+      <li><strong>Easy means easy.</strong> Pace 10:15–10:45 <em>and</em> average HR <span class="easy">≤155</span>. If HR is over 155, slow down even if pace slips past 10:45. The Jul 25 treadmill (4 mi @ 10:33, 149 bpm) is the template.</li>
+      <li><strong>Tempo means tempo.</strong> Continuous miles at <span class="hard">8:50–9:10</span>. Warm up and cool down easy; do not average 9:20–9:32 and call it threshold. HR 165–175 belongs here, not on easy days.</li>
+      <li><strong>One hard day per week.</strong> Long run is steady, not a race. Quality is either tempo or intervals — never both, and never the day after the long.</li>
+      <li><strong>If you only have two run days,</strong> keep <strong>long + easy</strong>. Do not drop easy to fit speed. Easy aerobic is the current gap.</li>
+      <li><strong>Bike / swim / gym</strong> only on rest days, moderate, 30–45 min. They do not replace the long run or the quality session.</li>
+    </ol>
+
+    <h2>Pace and heart rate</h2>
+    <div class="wrap">
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Pace</th><th>Average HR</th><th>Feel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Easy</td><td>10:15–10:45 /mi (slower if needed)</td><td class="easy">≤155</td><td>Conversational; nose breathing</td></tr>
+          <tr><td>Long</td><td>9:50–10:20 /mi</td><td class="easy">≤160</td><td>Steady; last miles not a kick unless noted</td></tr>
+          <tr><td>Goal race pace</td><td>9:00–9:10 /mi</td><td>—</td><td>Controlled hard; only when the plan says so</td></tr>
+          <tr><td>Tempo</td><td>8:50–9:10 /mi</td><td class="hard">165–175</td><td>Comfortably hard; a few words</td></tr>
+          <tr><td>800m intervals</td><td>8:00–8:20 /mi (~2:00–2:05 /800)</td><td class="hard">High</td><td>Hard, then full easy jog recoveries</td></tr>
+          <tr><td>Mile repeats</td><td>8:45–9:00 /mi</td><td class="hard">High</td><td>Goal pace or a touch faster</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Sleep and recovery</h2>
+    <p>Garmin sleep need has been about 8–8.5 hours. Actual nights are often ~6h 45m. Friday Aug 15 was score 65 / HRV 45 after a week of too-hard “easy” running.</p>
+    <div class="wrap">
+      <table>
+        <thead>
+          <tr><th>Goal</th><th>Target</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Time in bed</td><td><strong>8 hours</strong>, same window most nights</td></tr>
+          <tr><td>Time asleep</td><td><strong>≥7 hours</strong></td></tr>
+          <tr><td>Sleep score</td><td><strong>≥80</strong> (Good) as the default</td></tr>
+          <tr><td>Overnight HRV</td><td>Hold <strong>47–51</strong>; dip to ~45 plus score under 70 is a warning</td></tr>
+          <tr><td>Resting HR</td><td>Stay near <strong>55</strong>; a jump to 57+ with poor sleep means back off</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><strong>Hard-day sleep rule.</strong> Night before the long run and night before tempo/intervals: 8 hours in bed. If that night’s score is under 70 or HRV is clearly down, swap the quality session for an easy 4 and do not stack another hard day.</p>
+    <p><strong>After a long run:</strong> easy or rest the next day; protect sleep that night.</p>
+
+    <h2>Weekly structure</h2>
+    <p>3 runs (Long, Quality, Easy) plus optional gym. At least one full rest or easy cross-training day between runs.</p>
+    <p><strong>Gym (30–40 min, easy days only):</strong> squats, walking lunges, single-leg RDLs, glute bridges, planks, calf raises. Moderate. Not a second leg day.</p>
+
+    <h2>Completed — Weeks 1–4</h2>
+    <div class="wrap">
+      <table>
+        <thead>
+          <tr><th>Week</th><th>Dates</th><th>What happened</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Jul 20–26</td><td>12.3 mi (3.3, 5.0, 4.0 treadmill @ 10:33 / 149 bpm) + strength</td></tr>
+          <tr><td>2</td><td>Jul 27–Aug 2</td><td>13.0 mi (3.1, 5.1, 3.8 + 1.1)</td></tr>
+          <tr><td>3</td><td>Aug 3–9</td><td>9.6 mi; missed 6 mi long and 400s; 32 mi bike</td></tr>
+          <tr><td>4</td><td>Aug 10–16</td><td>16.1 mi: 4.0 @ 9:20, 5.0 @ 9:21, <strong>7.06 @ 10:00 / 165 bpm</strong> + swim</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Remaining weeks</h2>
+    <p>Quality sessions include easy warmup and cooldown. Listed tempo miles are the hard portion only.</p>
+    <div class="wrap">
+      <table>
+        <thead>
+          <tr><th>Week</th><th>Dates</th><th>Long run</th><th>Quality</th><th>Easy</th></tr>
+        </thead>
+        <tbody>
+          <tr class="current">
+            <td>5</td>
+            <td>Aug 17–23</td>
+            <td>8 mi @ 9:50–10:20, HR ≤160</td>
+            <td>1.5 mi easy + <strong>5×800m @ 8:00–8:20</strong> (400m jog) + 1 mi easy</td>
+            <td>4 mi @ 10:15–10:45, HR ≤155</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Aug 24–30</td>
+            <td>9 mi, last 2 @ 9:05–9:15</td>
+            <td>1.5 mi easy + <strong>4 mi continuous tempo @ 8:50–9:10</strong> + 1 mi easy</td>
+            <td>5 mi easy, HR ≤155</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Aug 31–Sep 6</td>
+            <td>10 mi, last 2 @ 9:05–9:15</td>
+            <td>1.5 mi easy + <strong>4×1 mi @ 8:45–9:00</strong> (3–4 min jog) + 1 mi easy</td>
+            <td>5 mi easy, HR ≤155</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Sep 7–13</td>
+            <td><strong>11 mi peak</strong>, last 3 @ 9:05–9:15</td>
+            <td>1.5 mi easy + <strong>3 mi continuous tempo @ 8:50–9:10</strong> + 1 mi easy</td>
+            <td>5 mi easy, HR ≤155</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Sep 14–20</td>
+            <td>7 mi easy, HR ≤155</td>
+            <td>1 mi easy + <strong>2 mi @ 9:05–9:15</strong> + 1 mi easy</td>
+            <td>3 mi easy</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Sep 21–26</td>
+            <td>3 mi easy</td>
+            <td>2 mi shakeout with 4×20s strides</td>
+            <td>Rest 1–2 days pre-race</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Sun, Sep 27 — Race day.</strong> Target 9:09/mi. Start 9:15 for the first 2–3 miles, then settle 9:05–9:10.</p>
+
+    <section class="this-week">
+      <h2>This week — Week 5</h2>
+      <p>Space these with a rest or cross day between each. Suggested order: easy → 800s → rest → long → rest.</p>
+      <ul class="plain">
+        <li><strong>Easy 4 mi:</strong> 10:15–10:45, HR ≤155. If the watch is 160 at mile 1, walk 30 seconds and resume slower. This session fills the easy-aerobic bucket.</li>
+        <li><strong>5×800m:</strong> Warm up 1.5 mi easy. 800s in 2:00–2:05. Jog 400m between. Cool down 1 mi. Only if the previous night’s sleep score was ≥70.</li>
+        <li><strong>Long 8 mi:</strong> 9:50–10:20 the whole way. No surge in the last mile. Fuel a gel or equivalent around mile 5.</li>
+      </ul>
+    </section>
+
+    <h2>Notes</h2>
+    <ul class="plain">
+      <li>Hydrate and fuel longs 8 mi and up. Practice race-day breakfast on the Week 7 and Week 8 longs.</li>
+      <li>Do not test race pace on easy days. 9:20 at 167 bpm is the habit to break.</li>
+      <li>Bike and swim stay useful on rest days. They do not count as the easy run.</li>
+    </ul>
+
+    <footer>Source: Garmin Connect pull Aug 16, 2026 · plan revised after Week 4 long run.</footer>
+  </main>
+</body>
+</html>
